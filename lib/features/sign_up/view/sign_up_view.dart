@@ -14,7 +14,7 @@ class RegisterView extends StatelessWidget {
           // 🔵 الخلفية
           Positioned.fill(
             child: Image.asset(
-              "assets/images/background.png",
+              "assets/logo.jpg",
               fit: BoxFit.cover,
             ),
           ),
