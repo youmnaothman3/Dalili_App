@@ -1,3 +1,4 @@
+import 'package:dalili_app/core/routes/route_class.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,6 +34,7 @@ class SignInController extends GetxController {
     isLoading.value = false;
 
     Get.snackbar("نجاح", "تم تسجيل الدخول");
+    Get.offAllNamed(Routes.home);
   }
 
   @override

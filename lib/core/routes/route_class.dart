@@ -1,3 +1,5 @@
+import 'package:dalili_app/features/home/data/home_data.dart';
+import 'package:dalili_app/features/home/view/home_view.dart';
 import 'package:dalili_app/features/sign_in/data/sign_in_data.dart';
 import 'package:dalili_app/features/sign_in/view/sign_in_view.dart';
 import 'package:dalili_app/features/sign_up/data/sign_up_data.dart';
@@ -7,8 +9,7 @@ import 'package:get/get.dart';
 abstract class Routes {
   static const signup = '/signup';
   static const signIn = '/signin';
-
-
+  static const home = '/home';
 }
 
 class AppPages {
@@ -18,10 +19,15 @@ class AppPages {
       page: () => const SignInView(),
       binding: SignInBinding(),
     ),
-GetPage(
+    GetPage(
       name: '/signup',
       page: () => const RegisterView(),
       binding: SignUpBinding(),
+    ),
+    GetPage(
+      name: Routes.home,
+      page: () => const HomeView(),
+      binding: HomeBinding(),
     ),
 
     // GetPage(

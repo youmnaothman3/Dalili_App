@@ -165,7 +165,6 @@ class SignInView extends StatelessWidget {
                                 const SizedBox(width: 8),
                                 Switch(
                                   value: controller.rememberMe.value,
-                                  activeThumbColor: AppColors.primary,
                                   onChanged: (value) {
                                     controller.rememberMe.value = value;
                                   },
@@ -178,9 +177,9 @@ class SignInView extends StatelessWidget {
 
                       const SizedBox(height: 16),
 
-                      CustomButton(
+                     CustomButton(
                         text: 'تسجيل الدخول',
-                        onPressed: controller.register,
+                      onPressed: () => Get.toNamed(Routes.home),
                         isLoading: controller.isLoading,
                       ),
 

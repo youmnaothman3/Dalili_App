@@ -27,8 +27,8 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
             ),
           ),
-          onPressed: isLoading?.value == true ? null : onPressed,
-          child: isLoading?.value == true
+        onPressed: isLoading.value ? null : onPressed,
+          child: isLoading.value
               ? const CircularProgressIndicator(color: Colors.white)
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
