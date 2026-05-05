@@ -27,17 +27,17 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
             ),
           ),
-          onPressed: isLoading.value ? null : onPressed,
-          child: isLoading.value
-              ? const SizedBox(
-                  height: 22,
-                  width: 22,
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                    strokeWidth: 2,
-                  ),
-                )
-              : Text(text, style: const TextStyle(color: Colors.white)),
+          onPressed: isLoading?.value == true ? null : onPressed,
+          child: isLoading?.value == true
+              ? const CircularProgressIndicator(color: Colors.white)
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.person_add, color: Colors.white),
+                    const SizedBox(width: 8),
+                    Text(text, style: const TextStyle(color: Colors.white)),
+                  ],
+                ),
         ),
       ),
     );

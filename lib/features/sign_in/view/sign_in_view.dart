@@ -1,6 +1,7 @@
 import 'package:dalili_app/core/constant/app_colors.dart';
 import 'package:dalili_app/core/constant/app_images.dart';
 import 'package:dalili_app/core/constant/app_strings.dart';
+import 'package:dalili_app/core/routes/route_class.dart';
 import 'package:dalili_app/features/sign_in/controller/sign_in_controller.dart';
 import 'package:dalili_app/widgets/custom_button.dart';
 import 'package:dalili_app/widgets/custom_text_field.dart';
@@ -214,16 +215,18 @@ class SignInView extends StatelessWidget {
 
                       const SizedBox(height: 14),
 
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'ليس لديك حساب؟ إنشاء حساب جديد',
-                          style: TextStyle(
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    TextButton(
+  onPressed: () {
+    Get.toNamed(Routes.signup);
+  },
+  child: const Text(
+    'ليس لديك حساب؟ إنشاء حساب جديد',
+    style: TextStyle(
+      color: AppColors.primary,
+      fontWeight: FontWeight.w600,
+    ),
+  ),
+),
 
                       const SizedBox(height: 8),
 

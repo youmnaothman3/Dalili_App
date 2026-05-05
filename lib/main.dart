@@ -15,10 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.rtl, // 👈 يخلي كل شي RTL
+          child: child!,
+        );
+      },
+
 initialRoute: Routes.signIn,
       getPages: AppPages.pages,
    );
+
   }
 }
