@@ -1,11 +1,11 @@
-class UserModel {
-  String name;
-  String birthDate;
-  String phone;
-  String password;
+class SignUpData {
+  final String fullName;
+  final String birthDate;
+  final String phone;
+  final String password;
 
-  UserModel({
-    required this.name,
+  SignUpData({
+    required this.fullName,
     required this.birthDate,
     required this.phone,
     required this.password,
