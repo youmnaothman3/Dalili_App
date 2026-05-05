@@ -5,19 +5,19 @@ import '../core/constant/app_colors.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final RxBool? isLoading;
+  final RxBool isLoading;
 
   const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
-    this.isLoading,
+    required this.isLoading,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return SizedBox(
+    return Obx(
+      () => SizedBox(
         width: double.infinity,
         height: 55,
         child: ElevatedButton(
@@ -27,12 +27,19 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
             ),
           ),
-          onPressed: isLoading?.value == true ? null : onPressed,
-          child: isLoading?.value == true
-              ? const CircularProgressIndicator(color: Colors.white)
-              : Text(text),
+          onPressed: isLoading.value ? null : onPressed,
+          child: isLoading.value
+              ? const SizedBox(
+                  height: 22,
+                  width: 22,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2,
+                  ),
+                )
+              : Text(text, style: const TextStyle(color: Colors.white)),
         ),
-      );
-    });
+      ),
+    );
   }
 }

@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
+
           const SizedBox(height: 6),
 
           TextField(
@@ -32,7 +33,6 @@ class CustomTextField extends StatelessWidget {
             obscureText: isPassword,
             decoration: InputDecoration(
               hintText: hint,
-
               filled: true,
               fillColor: Colors.grey.shade100,
 
