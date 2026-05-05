@@ -22,21 +22,35 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end, // 👈 RTL
         children: [
-          Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
+          /// 🔹 label من اليمين
+         Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(label, textAlign: TextAlign.right),
+          ),
+
           const SizedBox(height: 6),
 
+          /// 🔹 الحقل
           TextField(
             controller: controller,
             obscureText: isPassword,
+            textAlign: TextAlign.right,
+
             decoration: InputDecoration(
               hintText: hint,
+              hintTextDirection: TextDirection.rtl, // 👈 مهم
 
               filled: true,
               fillColor: Colors.grey.shade100,
 
-              prefixIcon: Icon(icon, color: AppColors.primary),
+              /// 👈 الأيقونة داخل الحقل من اليمين
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Icon(icon, color: AppColors.primary),
+              ),
+              prefixIconConstraints: const BoxConstraints(minWidth: 40),
 
               contentPadding: const EdgeInsets.symmetric(
                 vertical: 16,

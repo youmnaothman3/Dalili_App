@@ -30,7 +30,14 @@ class CustomButton extends StatelessWidget {
           onPressed: isLoading?.value == true ? null : onPressed,
           child: isLoading?.value == true
               ? const CircularProgressIndicator(color: Colors.white)
-              : Text(text),
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.person_add, color: Colors.white),
+                    const SizedBox(width: 8),
+                    Text(text, style: const TextStyle(color: Colors.white)),
+                  ],
+                ),
         ),
       );
     });

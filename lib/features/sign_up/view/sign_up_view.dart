@@ -6,6 +6,7 @@ import 'package:dalili_app/widgets/custom_button.dart';
 import 'package:dalili_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
@@ -16,13 +17,13 @@ class RegisterView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          /// 🌅 الخلفية مع تدرج (حتى تبين الحواف)
+          /// 🌅 الخلفية
           SizedBox.expand(
             child: Stack(
               children: [
                 Image.asset(AppImages.background, fit: BoxFit.cover),
 
-                /// Gradient overlay
+                /// تدرج خفيف
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -45,11 +46,9 @@ class RegisterView extends StatelessWidget {
             child: Center(
               child: SingleChildScrollView(
                 child: Container(
-                  width: double.infinity,
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding: const EdgeInsets.all(20),
 
-                  /// ✨ كرت بمنتصف الشاشة
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(25),
@@ -63,8 +62,9 @@ class RegisterView extends StatelessWidget {
                   ),
 
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      /// logo
+                      /// LOGO
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
                         child: Image.asset(AppImages.logo, height: 80),
@@ -72,23 +72,62 @@ class RegisterView extends StatelessWidget {
 
                       const SizedBox(height: 10),
 
+                      /// العنوان (أزرق)
                       Text(
                         AppStrings.appTitle,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
 
                       const SizedBox(height: 5),
 
+                      /// subtitle
                       Text(
                         AppStrings.subtitle,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 12,
                           color: AppColors.textSecondary,
                         ),
                       ),
 
+                      const SizedBox(height: 6),
+
+                      /// خط تحت subtitle
+                      Container(
+                        width: 100,
+                        height: 2,
+                        color: AppColors.divider,
+                      ),
+
                       const SizedBox(height: 20),
 
+                      /// إنشاء حساب (أزرق)
+                      Text(
+                        AppStrings.createAccount,
+                        style: const TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      const SizedBox(height: 5),
+
+                      /// نص خفيف
+                      Text(
+                        AppStrings.fillData,
+                        style: const TextStyle(
+                          color: AppColors.lightText,
+                          fontSize: 12,
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      /// الحقول
                       CustomTextField(
                         label: AppStrings.fullName,
                         hint: AppStrings.fullNameHint,
@@ -128,10 +167,75 @@ class RegisterView extends StatelessWidget {
 
                       const SizedBox(height: 20),
 
+                      /// زر إنشاء الحساب
                       CustomButton(
                         text: AppStrings.createBtn,
                         onPressed: controller.register,
                         isLoading: controller.isLoading,
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      /// OR Divider
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              color: AppColors.divider,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              AppStrings.or,
+                              style: const TextStyle(
+                                color: AppColors.lightText,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              color: AppColors.divider,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      /// زر تسجيل الدخول
+                     OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: AppColors.primary),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                        ),
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.login, color: AppColors.primary),
+                            const SizedBox(width: 8),
+                            Text(
+                              AppStrings.login,
+                              style: const TextStyle(color: AppColors.primary),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 15),
+
+                      Text(
+                        AppStrings.secure,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppColors.lightText,
+                        ),
                       ),
                     ],
                   ),
