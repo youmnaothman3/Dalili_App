@@ -3,12 +3,14 @@ import 'package:dalili_app/core/constant/app_images.dart';
 import 'package:dalili_app/core/constant/app_strings.dart';
 import 'package:dalili_app/core/routes/route_class.dart';
 import 'package:dalili_app/features/sign_in/controller/sign_in_controller.dart';
+import 'package:dalili_app/helper/app_helper.dart';
 import 'package:dalili_app/widgets/custom_button.dart';
 import 'package:dalili_app/widgets/custom_text_field.dart';
+import 'package:dalili_app/widgets/wait_dialod.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignInView extends StatelessWidget {
+class SignInView extends GetView<SignInController> {
   const SignInView({super.key});
 
   @override
@@ -21,7 +23,7 @@ class SignInView extends StatelessWidget {
           SizedBox.expand(
             child: Stack(
               children: [
-                Image.asset(AppImages.background, fit: BoxFit.cover),
+                Image.asset(AppImages.image_auth, fit: BoxFit.cover),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -117,19 +119,26 @@ class SignInView extends StatelessWidget {
 
                       const SizedBox(height: 26),
 
-                      CustomTextField(
-                        label: AppStrings.phone,
-                        hint: AppStrings.phoneHint,
-                        icon: Icons.phone,
-                        controller: controller.phoneController,
+                      Obx(
+                        () => CustomTextField(
+                          // label: AppStrings.phone,
+                          label: controller.phoneController.value.text,
+                          hint: AppStrings.phoneHint,
+                          icon: Icons.phone,
+                          controller: controller.phoneController.value,
+                        ),
                       ),
 
-                      CustomTextField(
-                        label: AppStrings.password,
-                        hint: AppStrings.passwordHint,
-                        icon: Icons.lock,
-                        controller: controller.passwordController,
-                        isPassword: true,
+                      Obx(
+                        () => CustomTextField(
+                          label: AppStrings.password,
+                          hint: AppStrings.passwordHint,
+                          icon: !controller.showPassword.value
+                              ? Icons.lock
+                              : Icons.lock_open,
+                          controller: controller.passwordController.value,
+                          isPassword: !controller.showPassword.value,
+                        ),
                       ),
 
                       const SizedBox(height: 10),
@@ -177,9 +186,13 @@ class SignInView extends StatelessWidget {
 
                       const SizedBox(height: 16),
 
-                     CustomButton(
+                      CustomButton(
                         text: 'تسجيل الدخول',
-                      onPressed: () => Get.toNamed(Routes.home),
+                        // onPressed: () => Get.toNamed(Routes.home),
+                        onPressed: () {
+                          controller.signIn(context);
+                          Get.toNamed(Routes.home);
+                        },
                         isLoading: controller.isLoading,
                       ),
 
@@ -214,18 +227,18 @@ class SignInView extends StatelessWidget {
 
                       const SizedBox(height: 14),
 
-                    TextButton(
-  onPressed: () {
-    Get.toNamed(Routes.signup);
-  },
-  child: const Text(
-    'ليس لديك حساب؟ إنشاء حساب جديد',
-    style: TextStyle(
-      color: AppColors.primary,
-      fontWeight: FontWeight.w600,
-    ),
-  ),
-),
+                      TextButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.signup);
+                        },
+                        child: const Text(
+                          'ليس لديك حساب؟ إنشاء حساب جديد',
+                          style: TextStyle(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
 
                       const SizedBox(height: 8),
 

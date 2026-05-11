@@ -8,5 +8,4 @@ class Applink {
   // static String specializationDetails(String id) {
   //   return '$Server/specializations/$id';
   // }
-
 }

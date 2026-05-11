@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Api {
   // ======================== GET Request ========================
-  Future<dynamic> get({
+  static Future<dynamic> get({
     required String url,
     String? token,
     bool sendToken = false,
@@ -37,7 +37,7 @@ class Api {
   }
 
   // ======================== POST Request ========================
-  Future<dynamic> post({
+  static Future<dynamic> post({
     required String url,
     required dynamic body,
     String? token,
@@ -93,7 +93,7 @@ class Api {
   }
 
   // ======================== DELETE Request ========================
-  Future<dynamic> delete({
+  static Future<dynamic> delete({
     required String url,
     String? token,
     bool sendToken = false,

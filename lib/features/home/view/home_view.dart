@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
           SizedBox.expand(
             child: Stack(
               children: [
-                Image.asset(AppImages.background, fit: BoxFit.cover),
+                Image.asset(AppImages.image_home, fit: BoxFit.cover),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(

@@ -22,7 +22,7 @@ class RegisterView extends StatelessWidget {
           SizedBox.expand(
             child: Stack(
               children: [
-                Image.asset(AppImages.background, fit: BoxFit.cover),
+                Image.asset(AppImages.image_auth, fit: BoxFit.cover),
 
                 /// تدرج خفيف
                 Container(
@@ -171,7 +171,9 @@ class RegisterView extends StatelessWidget {
                       /// زر إنشاء الحساب
                       CustomButton(
                         text: AppStrings.createBtn,
-                        onPressed: controller.register,
+                        onPressed: () {
+                          controller.register(context);
+                        },
                         isLoading: controller.isLoading,
                       ),
 
@@ -207,7 +209,7 @@ class RegisterView extends StatelessWidget {
                       const SizedBox(height: 20),
 
                       /// زر تسجيل الدخول
-                     OutlinedButton(
+                      OutlinedButton(
                         style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: AppColors.primary),
                           shape: RoundedRectangleBorder(

@@ -17,23 +17,24 @@ class AppPages {
     GetPage(
       name: '/signin',
       page: () => const SignInView(),
-      binding: SignInBinding(),
+      // binding: SignInBinding(),
     ),
     GetPage(
       name: '/signup',
       page: () => const RegisterView(),
-      binding: SignUpBinding(),
+      // binding: SignUpBinding(),
     ),
+
     GetPage(
       name: Routes.home,
       page: () => const HomeView(),
-      binding: HomeBinding(),
+      // binding: HomeBinding(),
     ),
 
     // GetPage(
     //   name: Routes.roleSelection,
     //   page: () => const RoleSelectionView(),
     //   binding: RoleSelectionBinding(),
-      // TODO: StaffLogin,
+    // TODO: StaffLogin,
   ];
 }

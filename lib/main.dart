@@ -1,11 +1,14 @@
 import 'package:dalili_app/core/constant/app_theme.dart';
-import 'package:dalili_app/features/sign_in/view/sign_in_view.dart';
-import 'package:dalili_app/features/sign_up/view/sign_up_view.dart';
+import 'package:dalili_app/features/home/controller/home_controller.dart';
+import 'package:dalili_app/features/sign_in/controller/sign_in_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/routes/route_class.dart';
 
 void main() {
+  Get.put(() => SignInController());
+  Get.put(() => HomeController());
   runApp(const MyApp());
 }
 
@@ -25,9 +28,8 @@ class MyApp extends StatelessWidget {
         );
       },
 
-initialRoute: Routes.signIn,
+      initialRoute: Routes.signIn,
       getPages: AppPages.pages,
-   );
-
+    );
   }
 }
