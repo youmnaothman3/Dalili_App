@@ -1,18 +1,5 @@
+import 'package:dalili_app/features/home/model/home_item_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:dalili_app/features/home/controller/home_controller.dart';
-
-class HomeItem {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-
-  const HomeItem({
-    required this.title,
-    required this.subtitle,
-    required this.icon,
-  });
-}
 
 class HomeData {
   static const List<HomeItem> items = [
@@ -20,23 +7,19 @@ class HomeData {
       title: 'المؤسسات',
       subtitle: 'تصفح جميع المؤسسات الحكومية واكتشف خدماتها',
       icon: Icons.account_balance,
+      route: '/institutions',
     ),
     HomeItem(
       title: 'المعاملات',
       subtitle: 'تصفح جميع المعاملات الحكومية واطلع على تفاصيلها',
       icon: Icons.description,
+      route: '/procedures',
     ),
     HomeItem(
       title: 'معاملاتي',
       subtitle: 'عرض ومتابعة المعاملات التي قمت بحفظها',
       icon: Icons.folder_special,
+      route: '/my_procedures',
     ),
   ];
-}
-
-class HomeBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => HomeController());
-  }
 }

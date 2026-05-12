@@ -25,4 +25,11 @@ class AppStrings {
 
   static const String or = "أو";
   static const String secure = "جميع البيانات محمية وآمنة";
+  static const profile = 'الملف الشخصي';
+  static const settings = 'الإعدادات';
+  static const help = 'المساعدة';
+  static const logout = 'تسجيل الخروج';
+
+  static const notifications = 'الإشعارات';
+  static const showAllNotifications = 'عرض كل الإشعارات';
 }
