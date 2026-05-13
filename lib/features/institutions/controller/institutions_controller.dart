@@ -1,3 +1,4 @@
+import 'package:dalili_app/core/routes/route_class.dart';
 import 'package:dalili_app/features/institutions/data/institutions_repository.dart';
 import 'package:dalili_app/features/institutions/model/institution_model.dart';
 import 'package:get/get.dart';
@@ -67,13 +68,7 @@ class InstitutionsController extends GetxController {
   }
 
   void onInstitutionTap(Institution institution) {
-    // Handle institution tap - can navigate to detail page later
-    Get.snackbar(
-      institution.name,
-      institution.description,
-      snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 2),
-    );
+    Get.toNamed(Routes.institutionDetails, arguments: institution);
   }
 
   void clearFilters() async {
