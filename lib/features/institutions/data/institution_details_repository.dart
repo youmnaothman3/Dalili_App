@@ -1,6 +1,6 @@
 import 'package:dalili_app/features/institutions/data/institution_details_mock_data.dart';
-import 'package:dalili_app/features/institutions/model/institution_branch_model.dart';
-import 'package:dalili_app/features/institutions/model/institution_transaction_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_branch_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_transaction_model.dart';
 
 class InstitutionDetailsRepository {
   final bool _useMockData = true;

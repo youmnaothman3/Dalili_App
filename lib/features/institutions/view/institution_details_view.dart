@@ -92,7 +92,7 @@ class InstitutionDetailsView extends StatelessWidget {
                         const SizedBox(height: 20),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
+                            horizontal: 0,
                             vertical: 12,
                           ),
                           decoration: BoxDecoration(
@@ -115,7 +115,7 @@ class InstitutionDetailsView extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                             tabs: const [
-                              Tab(text: 'معلومات المؤسسة'),
+                              Tab(text: ' معلومات المؤسسة'),
                               Tab(text: 'الأفرع التابعة'),
                               Tab(text: 'المعاملات'),
                             ],

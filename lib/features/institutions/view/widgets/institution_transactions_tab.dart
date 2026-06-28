@@ -1,5 +1,5 @@
 import 'package:dalili_app/core/constant/app_colors.dart';
-import 'package:dalili_app/features/institutions/model/institution_transaction_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_transaction_model.dart';
 import 'package:flutter/material.dart';
 
 class InstitutionTransactionsTab extends StatefulWidget {

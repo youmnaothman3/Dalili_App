@@ -1,7 +1,7 @@
 import 'package:dalili_app/features/institutions/data/institution_details_repository.dart';
-import 'package:dalili_app/features/institutions/model/institution_branch_model.dart';
-import 'package:dalili_app/features/institutions/model/institution_model.dart';
-import 'package:dalili_app/features/institutions/model/institution_transaction_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_branch_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_transaction_model.dart';
 import 'package:get/get.dart';
 
 class InstitutionDetailsController extends GetxController {

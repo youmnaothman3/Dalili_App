@@ -2,11 +2,12 @@ import 'package:dalili_app/core/constant/app_colors.dart';
 import 'package:dalili_app/features/app_bar/controller/app_bar_controller.dart';
 import 'package:dalili_app/features/app_bar/widgets/custom_app_bar.dart';
 import 'package:dalili_app/features/institutions/controller/institutions_controller.dart';
-import 'package:dalili_app/features/institutions/model/institution_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_model.dart';
+import 'package:dalili_app/features/institutions/view/widgets/build_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class InstitutionsView extends StatelessWidget {
+class InstitutionsView extends GetView<InstitutionsController> {
   const InstitutionsView({super.key});
 
   @override
@@ -96,7 +97,7 @@ class InstitutionsView extends StatelessWidget {
                       const SizedBox(height: 16),
 
                       // Search Bar
-                      _buildSearchBar(controller),
+                      buildSearchBar(controller),
                       const SizedBox(height: 12),
 
                       // Location Filter
@@ -149,44 +150,6 @@ class InstitutionsView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildSearchBar(InstitutionsController controller) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(28),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 14,
-            offset: Offset(0, 6),
-          ),
-        ],
-      ),
-      child: TextField(
-        onChanged: controller.onSearch,
-        textDirection: TextDirection.rtl,
-        decoration: InputDecoration(
-          hintText: 'ابحث عن مؤسسة حكومية...',
-          hintTextDirection: TextDirection.rtl,
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 14,
-          ),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: Icon(Icons.search, color: AppColors.primary, size: 20),
-          ),
-          suffixIconConstraints: const BoxConstraints(
-            minWidth: 48,
-            minHeight: 48,
-          ),
-        ),
-        style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
       ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:dalili_app/features/institutions/model/institution_model.dart';
+import 'package:dalili_app/features/institutions/data/model/institution_model.dart';
 
 class InstitutionsMockData {
   static const List<Map<String, dynamic>> mockInstitutions = [
