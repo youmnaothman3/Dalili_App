@@ -1,17 +1,29 @@
 import 'package:dalili_app/core/constant/app_theme.dart';
+import 'package:dalili_app/core/routes/route_class.dart';
+import 'package:dalili_app/core/services/progress_service.dart';
+import 'package:dalili_app/core/services/saved_transactions_service.dart';
+import 'package:dalili_app/features/feedback/data/feedback_repository.dart';
 import 'package:dalili_app/features/home/controller/home_controller.dart';
-import 'package:dalili_app/features/institutions/controller/institutions_controller.dart';
 import 'package:dalili_app/features/sign_in/controller/sign_in_controller.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'core/routes/route_class.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+
+  Get.put(SavedTransactionsService());
+  await Get.find<SavedTransactionsService>().init();
+
+  Get.put(ProgressService());
+  await Get.find<ProgressService>().init();
+
+  Get.put(FeedbackRepository());
+  await Get.find<FeedbackRepository>().init();
+
   Get.put(() => SignInController());
   Get.put(() => HomeController());
-  // Get.put(() => InstitutionsController());
   runApp(const MyApp());
 }
 

@@ -48,7 +48,7 @@ class HomeView extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                CustomAppBar(title: controller.title),
+                CustomAppBar(title: controller.title, isRootScreen: true),
                 Expanded(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(

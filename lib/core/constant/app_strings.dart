@@ -12,7 +12,7 @@ class AppStrings {
   static const String birthDateHint = "اختر تاريخ ميلادك";
 
   static const String phone = "رقم الهاتف";
-  static const String phoneHint = "09xxxxxxxx";
+  static const String phoneHint = "أدخل رقمك";
 
   static const String password = "كلمة السر";
   static const String passwordHint = "أدخل كلمة السر";

@@ -13,13 +13,13 @@ class HomeData {
       title: 'المعاملات',
       subtitle: 'تصفح جميع المعاملات الحكومية واطلع على تفاصيلها',
       icon: Icons.description,
-      route: '/procedures',
+      route: '/transactions',
     ),
     HomeItem(
       title: 'معاملاتي',
       subtitle: 'عرض ومتابعة المعاملات التي قمت بحفظها',
       icon: Icons.folder_special,
-      route: '/my_procedures',
+      route: '/my-transactions',
     ),
   ];
 }
